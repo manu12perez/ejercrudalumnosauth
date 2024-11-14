@@ -3,7 +3,7 @@ import Global from "@/Global";
 
 export default class SeriveAlumnos {
 
-    loginAlumnos(user) {
+    login(user) {
         return new Promise(function (resolve) {
             let request = "api/auth/login";
             let url = Global.urlApiAlumnos + request;
