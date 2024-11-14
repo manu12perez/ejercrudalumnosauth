@@ -31,7 +31,7 @@ export default {
       this.user = { userName: this.userName, password: this.password };
       console.log(this.user);
 
-      service.loginCoches(this.user).then((response) => {
+      service.loginAlumnos(this.user).then((response) => {
         Global.token = response.data.response;
         console.log(response.data.response);
 
