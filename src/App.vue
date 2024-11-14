@@ -1,7 +1,8 @@
 <template>
   <div>
     <LoginComponent v-if="!isAuthenticated" @login-success="onLoginSuccess" />
-    <MenuComponent v-if="isAuthenticated" />
+    <MenuComponent v-if="isAuthenticated" />    
+    <router-view v-if="isAuthenticated"></router-view>
   </div>
 </template>
 
