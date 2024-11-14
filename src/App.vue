@@ -1,17 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <LoginComponent v-if="!isAuthenticated" @login-success="onLoginSuccess" />
+    <MenuComponent v-if="isAuthenticated" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MenuComponent from "./components/MenuComponent.vue";
+import LoginComponent from './components/LoginComponent.vue';
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MenuComponent,
+    LoginComponent
+  },
+  data() {
+    return {
+      isAuthenticated: false,  // Controla si el usuario está logueado
+    };
+  },
+  methods: {
+    // Este método se ejecutará cuando el login sea exitoso
+    onLoginSuccess() {
+      this.isAuthenticated = true;
+    }
+  },
+};
 </script>
 
 <style>
